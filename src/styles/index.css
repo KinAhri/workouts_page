@@ -26,83 +26,82 @@
   --font-mono: var(--font-mono);
 }
 
-/* 1. System Theme (Base) */
+/* 1. 系統主題 (淺色 - 燕麥白與赭棕) */
 @media (prefers-color-scheme: light) {
   :root {
-    --color-brand: var(--color-violet-600);
-    --color-secondary: var(--color-violet-600);
-    --color-bg: var(--color-neutral-100);
-    --color-tx: var(--color-violet-500);
-    --color-hr: var(--color-neutral-300);
-    --color-selected: var(--color-violet-500);
-    --color-run-date: var(--color-neutral-800);
-    --color-run-table-thead: var(--color-neutral-800);
-    --color-run-row-hover-background: var(--color-neutral-200);
-    --color-activity-card: var(--color-neutral-300);
-    --svg-color-active-cell: var(--color-neutral-400);
-    --svg-special-color: #d4a574;
-    --svg-special-color2: #c5756b;
+    --color-brand: #8B5A2B; /* 赭棕色 (主色調) */
+    --color-secondary: #6B705C; /* 莫蘭迪橄欖綠 (次要色) */
+    --color-bg: #FAF8F5; /* 燕麥白 (背景) */
+    --color-tx: #4A4036; /* 深咖啡 (主要文字) */
+    --color-hr: #E6E2D8; /* 奶茶灰 (分隔線) */
+    --color-selected: #8B5A2B;
+    --color-run-date: #7F7366; /* 暖灰 (日期) */
+    --color-run-table-thead: #4A4036; /* 深咖 (表頭) */
+    --color-run-row-hover-background: #F0EBE1; /* 淺卡其 (懸停背景) */
+    --color-activity-card: #F4F0E6; /* 米色 (卡片底色) */
+    --svg-color-active-cell: #BCAAA4;
+    --svg-special-color: #D4A574;
+    --svg-special-color2: #CB857A;
     --font-sans: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
   }
 }
 
+/* 1. 系統主題 (深色 - 深焙咖與沙土黃) */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* const nike = 'rgb(224,237,94)'; */
-    --color-brand: #00ed5e;
-    --color-secondary: #00ff00;
-    --color-bg: var(--color-neutral-900);
-    --color-tx: var(--color-brand);
-    --color-hr: var(--color-red-500);
-    --color-selected: var(--color-brand);
-    --color-run-date: var(--color-neutral-300);
-    --color-run-table-thead: var(--color-zinc-300);
-    --color-run-row-hover-background: var(--color-neutral-800);
-    --color-activity-card: var(--color-neutral-700);
-    --svg-color-active-cell: #4dd2ff;
-    --svg-special-color: #f7d02c;
-    --svg-special-color2: #f56c6c;
+    --color-brand: #D4A373; /* 沙土黃 (暗黑模式主色) */
+    --color-secondary: #A3B18A; /* 淺灰綠 (次要色) */
+    --color-bg: #231F1C; /* 深焙黑咖 (深色背景) */
+    --color-tx: #E8E4DE; /* 羊毛白 (主要文字) */
+    --color-hr: #3C352F; /* 暗褐 (分隔線) */
+    --color-selected: #D4A373;
+    --color-run-date: #A69D95; /* 中性暖灰 (日期) */
+    --color-run-table-thead: #E8E4DE;
+    --color-run-row-hover-background: #2F2A26; /* 深可可 (懸停背景) */
+    --color-activity-card: #2A2521; /* 黑巧 (卡片底色) */
+    --svg-color-active-cell: #8D7B68;
+    --svg-special-color: #E9C46A;
+    --svg-special-color2: #F4A261;
     --font-sans: 'IBM Plex Sans', sans-serif;
     --font-mono: 'IBM Plex Mono', monospace;
   }
 }
 
-/* 2. Manual Override (Higher Priority) */
+/* 2. 手動切換覆寫 (確保網站右上角的主題切換按鈕顏色一致) */
 [data-theme='light'] {
-  --color-brand: var(--color-violet-600);
-  --color-secondary: var(--color-violet-500);
-  --color-bg: var(--color-neutral-100);
-  --color-tx: var(--color-violet-500);
-  --color-hr: var(--color-neutral-300);
-  --color-selected: var(--color-violet-500);
-  --color-run-date: var(--color-neutral-800);
-  --color-run-table-thead: var(--color-neutral-800);
-  --color-run-row-hover-background: var(--color-neutral-200);
-  --color-activity-card: var(--color-neutral-300);
-  --svg-color-inactive-cell: var(--color-neutral-600);
-  --svg-color-active-cell: var(--color-neutral-400);
-  --svg-special-color: #d4a574;
-  --svg-special-color2: #c5756b;
+  --color-brand: #8B5A2B;
+  --color-secondary: #6B705C;
+  --color-bg: #FAF8F5;
+  --color-tx: #4A4036;
+  --color-hr: #E6E2D8;
+  --color-selected: #8B5A2B;
+  --color-run-date: #7F7366;
+  --color-run-table-thead: #4A4036;
+  --color-run-row-hover-background: #F0EBE1;
+  --color-activity-card: #F4F0E6;
+  --svg-color-inactive-cell: #E6E2D8; /* 淺色模式下未啟用的方塊色 */
+  --svg-color-active-cell: #BCAAA4;
+  --svg-special-color: #D4A574;
+  --svg-special-color2: #CB857A;
   --font-sans: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
 [data-theme='dark'] {
-  /* const nike = 'rgb(224,237,94)'; */
-  --color-brand: #00ed5e;
-  --color-secondary: #00ff00;
-  --color-bg: var(--color-neutral-900);
-  --color-tx: var(--color-brand);
-  --color-hr: var(--color-red-500);
-  --color-selected: var(--color-brand);
-  --color-run-date: var(--color-neutral-300);
-  --color-run-table-thead: var(--color-zinc-300);
-  --color-run-row-hover-background: var(--color-neutral-800);
-  --color-activity-card: var(--color-neutral-700);
-  --svg-color-active-cell: #4dd2ff;
-  --svg-special-color: #f7d02c;
-  --svg-special-color2: #f56c6c;
+  --color-brand: #D4A373;
+  --color-secondary: #A3B18A;
+  --color-bg: #231F1C;
+  --color-tx: #E8E4DE;
+  --color-hr: #3C352F;
+  --color-selected: #D4A373;
+  --color-run-date: #A69D95;
+  --color-run-table-thead: #E8E4DE;
+  --color-run-row-hover-background: #2F2A26;
+  --color-activity-card: #2A2521;
+  --svg-color-active-cell: #8D7B68;
+  --svg-special-color: #E9C46A;
+  --svg-special-color2: #F4A261;
   --font-sans: 'IBM Plex Sans', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
 }

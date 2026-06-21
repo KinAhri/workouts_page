@@ -22,7 +22,7 @@ import garth
 import httpx
 from config import FOLDER_DICT, JSON_FILE, SQL_FILE
 from garmin_device_adaptor import process_garmin_data
-from utils import make_activities_file_only
+from utils import make_activities_file
 
 # logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
@@ -445,7 +445,11 @@ if __name__ == "__main__":
         # merge downloaded_ids:list
         downloaded_ids = list(set(downloaded_ids + downloaded_gpx_ids))
 
-    loop = asyncio.get_event_loop()
+    try:
+        loop = asyncio.get_event_loop()
+    except RuntimeError:
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
     future = asyncio.ensure_future(
         download_new_activities(
             secret_string,
@@ -460,13 +464,13 @@ if __name__ == "__main__":
     new_ids, id2title = future.result()
     # fit may contain gpx(maybe upload by user)
     if file_type == "fit":
-        make_activities_file_only(
+        make_activities_file(
             SQL_FILE,
             FOLDER_DICT["gpx"],
             JSON_FILE,
             file_suffix="gpx",
             activity_title_dict=id2title,
         )
-    make_activities_file_only(
+    make_activities_file(
         SQL_FILE, folder, JSON_FILE, file_suffix=file_type, activity_title_dict=id2title
     )

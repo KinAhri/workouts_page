@@ -1,63 +1,73 @@
 /* Mobile-specific improvements for running page */
 
 @media only screen and (max-width: 768px) {
-  /* Prevent horizontal overflow on the main container */
+  /* 🌟 1. 修復 CLS (Cumulative Layout Shift) 畫面跳動問題 */
   .mobile-map-container {
     margin-bottom: 1rem;
-    max-width: 100%;
-    overflow: hidden;
+    width: 100%;
+    /* 預留地圖空間，防止地圖載入瞬間把下方表格往下推 */
+    aspect-ratio: 16 / 9;
+    min-height: 250px;
+    background-color: var(--color-activity-card); /* 載入前顯示骨架屏底色 */
+    border-radius: 0.5rem;
   }
 
-  /* Ensure body doesn't require horizontal scrolling */
   body {
-    overflow-x: hidden;
     max-width: 100vw;
+    /* 移除舊有的 overflow-x: hidden，改為在最外層容器限制，避免破壞內部滾動 */
   }
 
-  /* Make main content areas mobile-friendly */
+  /* 調整主要區塊的響應式寬度 */
   .lg\:w-1\/3,
   .lg\:w-2\/3 {
     width: 100% !important;
     max-width: 100%;
   }
 
-  /* Improve spacing on mobile */
+  /* 縮小手機版過大的留白 */
   .lg\:p-16 {
-    padding: 1rem !important;
+    padding: 1.25rem !important;
   }
 
-  /* Reduce title size on mobile */
+  /* RWD 字體調整 */
   .text-5xl {
-    font-size: 2.5rem !important;
+    font-size: 2rem !important;
+    line-height: 1.2;
   }
 
-  /* Optimize margin for mobile */
   .my-12 {
-    margin-top: 2rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  .mt-6 {
-    margin-top: 1rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
   }
 }
 
-/* Additional mobile table improvements */
+/* 🌟 2. 修復 RWD 表格跑版與滑動體驗 */
 @media only screen and (max-width: 480px) {
-  /* For very small screens, make table even more compact */
+  /* 將表格外層容器設定為可橫向滾動 */
+  .table-container,
+  .runTable-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* 讓 iOS 上的橫向滑動更順暢 */
+    padding-bottom: 0.5rem; /* 預留滾動條空間 */
+  }
+
+  /* 解除死板的最小寬度，讓表格內容自然展開，超出畫面時由外層容器負責滾動 */
   .runTable {
-    min-width: 550px !important;
-    font-size: 0.75rem !important;
+    width: 100% !important;
+    min-width: max-content !important;
+    font-size: 0.8rem !important;
   }
 
   .runTable th,
   .runTable td {
-    padding: 0.2rem !important;
-    min-width: 50px !important;
+    padding: 0.5rem 0.25rem !important;
+    white-space: nowrap; /* 強制表格內容不換行，維持乾淨整齊 */
   }
 
+  /* 確保最左側的日期/標題欄位有足夠寬度 */
   .runTable th:first-child,
   .runTable td:first-child {
-    min-width: 90px !important;
+    min-width: 100px !important;
   }
 }

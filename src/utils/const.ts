@@ -48,11 +48,12 @@ const SHOW_ELEVATION_GAIN = true;
 const RICH_TITLE = true;
 
 // IF you are outside China please make sure IS_CHINESE = false
-const IS_CHINESE = true;
+const IS_CHINESE = false;
 const USE_ANIMATION_FOR_GRID = false;
-const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string =>
-  `户外运动 ${yearLength} 年 ` +
-  (year === 'Total' ? '' : `，地图展示的是 ${year} 年的轨迹`);
+const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
+  const yearStr = year === 'Total' ? '所有' : ` ${year} `;
+  return `紀錄自己運動 ${yearLength} 年了，下面列表展示的是${yearStr}年的數據`;
+};
 
 const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
   `Logged ${yearLength} Years of Outdoor Journey` +
