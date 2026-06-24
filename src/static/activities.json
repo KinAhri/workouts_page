@@ -1,1 +1,18 @@
-[]
+[
+{
+"run_id": 1782287678000,
+"name": "Toyooka City - Base",
+"distance": 3710.39,
+"moving_time": "0:23:14",
+"type": "Run",
+"start_date": "2026-06-24 07:54:38",
+"start_date_local": "2026-06-24 16:54:38",
+"location_country": "\u52a0\u5e83\u901a, \u82e5\u677e\u753a, \u4e0a\u9670, \u8c50\u5ca1\u5e02, \u5175\u5e93\u53bf/\u5175\u5eab\u7e23, 668-0031, \u65e5\u672c",
+"summary_polyline": "qi_xEeyzuXiKhJoCtH}@GgB{AaEvDq@k@mOjL{IzEaBnBBhA`Gw@tJaHnRkSjCdB",
+"average_heartrate": 155.0,
+"average_speed": 2.6600000858306885,
+"elevation_gain": 8.0,
+"source": "Garmin Connect",
+"streak": 1
+}
+]
