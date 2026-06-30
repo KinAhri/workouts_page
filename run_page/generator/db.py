@@ -102,6 +102,9 @@ def update_or_create_activity(session, run_activity):
         ):
             current_elevation_gain = float(run_activity.elevation_gain)
 
+        # 🎯 安全獲取子類型：如果傳入物件沒有 subtype，就用本身的 type 代替
+        safe_subtype = getattr(run_activity, "subtype", getattr(run_activity, "type", None))
+
         if not activity:
             start_point = run_activity.start_latlng
             location_country = getattr(run_activity, "location_country", "")
@@ -135,7 +138,7 @@ def update_or_create_activity(session, run_activity):
                 moving_time=run_activity.moving_time,
                 elapsed_time=run_activity.elapsed_time,
                 type=run_activity.type,
-                subtype=run_activity.subtype,
+                subtype=safe_subtype,  # 🛠️ 改用安全變數
                 start_date=run_activity.start_date,
                 start_date_local=run_activity.start_date_local,
                 location_country=location_country,
@@ -154,7 +157,7 @@ def update_or_create_activity(session, run_activity):
             activity.moving_time = run_activity.moving_time
             activity.elapsed_time = run_activity.elapsed_time
             activity.type = run_activity.type
-            activity.subtype = run_activity.subtype
+            activity.subtype = safe_subtype  # 🛠️ 改用安全變數
             activity.average_heartrate = run_activity.average_heartrate
             activity.average_speed = float(run_activity.average_speed)
             activity.elevation_gain = current_elevation_gain
