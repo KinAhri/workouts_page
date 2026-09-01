@@ -35,6 +35,13 @@ IGNORE_BEFORE_SAVING = os.getenv("IGNORE_BEFORE_SAVING", False)
 # So dividing latitude and longitude (int32) value by 11930465 will give the decimal value.
 SEMICIRCLE = 11930465
 
+# Tolerance (in metres) handed to gpxpy's Ramer-Douglas-Peucker simplification.
+# gpxpy defaults to 10m, which strips a road run down to its corners only
+# (a 6km / 2164-point track collapses to ~36 points) and makes the rendered
+# route visibly cut across streets. 1m keeps the shape without bloating the
+# stored polyline. Set to 0 to keep every recorded point.
+GPX_SIMPLIFY_MAX_DISTANCE = float(os.getenv("GPX_SIMPLIFY_MAX_DISTANCE", "1"))
+
 
 class Track:
     def __init__(self):
@@ -246,7 +253,8 @@ class Track:
         for t in gpx.tracks:
             for s in t.segments:
                 moving_time += self._calc_moving_time(s.points, 10)
-        gpx.simplify()
+        if GPX_SIMPLIFY_MAX_DISTANCE > 0:
+            gpx.simplify(max_distance=GPX_SIMPLIFY_MAX_DISTANCE)
         if self.length == 0:
             self._load_gpx_extensions_data(gpx)
             return
