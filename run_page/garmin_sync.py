@@ -329,6 +329,27 @@ def get_downloaded_ids(folder):
     return [i.split(".")[0] for i in os.listdir(folder) if not i.startswith(".")]
 
 
+def parse_garmin_start_time(raw_start_time):
+    """Turn Garmin's ``startTimeGMT`` into an aware UTC datetime.
+
+    The field carries no timezone and Garmin is not consistent about how it
+    formats it: ``2024-08-26T07:28:34.0``, ``...34.000``, ``...34Z``, and
+    occasionally a space instead of the ``T``. Chopping off the last character
+    unconditionally turns ``...34.0`` into ``...34.``, which fromisoformat
+    rejects with "Invalid isoformat string".
+    """
+    text = raw_start_time.strip().replace(" ", "T")
+    if text.endswith("Z"):
+        text = text[:-1]
+    head, dot, fraction = text.partition(".")
+    if dot:
+        if not fraction:
+            text = head
+        elif fraction.isdigit():
+            text = f"{head}.{fraction[:6]:0<6}"
+    return dt.datetime.fromisoformat(text).replace(tzinfo=dt.timezone.utc)
+
+
 def get_garmin_summary_infos(activity_summary, activity_id):
     garmin_summary_infos = {}
     try:
@@ -336,9 +357,7 @@ def get_garmin_summary_infos(activity_summary, activity_id):
         garmin_summary_infos["distance"] = summary_dto.get("distance")
         garmin_summary_infos["average_hr"] = summary_dto.get("averageHR")
         garmin_summary_infos["average_speed"] = summary_dto.get("averageSpeed")
-        start_time = dt.datetime.fromisoformat(
-            summary_dto.get("startTimeGMT")[:-1] + "+00:00"
-        )
+        start_time = parse_garmin_start_time(summary_dto.get("startTimeGMT"))
         duration_second = summary_dto.get("duration")
         end_time = start_time + dt.timedelta(seconds=duration_second)
         garmin_summary_infos["start_time"] = start_time.isoformat()
