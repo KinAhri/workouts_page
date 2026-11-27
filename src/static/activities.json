@@ -2105,10 +2105,26 @@
 "start_date": "2026-11-18 06:19:26",
 "start_date_local": "2026-11-18 15:19:26",
 "location_country": "\u52a0\u5e83\u901a, \u82e5\u677e\u753a, \u4e0a\u9670, \u8c50\u5ca1\u5e02, \u5175\u5e93\u53bf/\u5175\u5eab\u7e23, 668-0031, \u65e5\u672c",
-"summary_polyline": "wsaxEqeyuX[RoB~@mSfJmCxAaAl@w@b@gAr@uAv@M`@URw@`@GJ@f@L^LLRFlAAhFPz@?RBzJL\\BhB@LBvEFx@Dv@E|@DXF|ADl@H^?dCXn@Zn@^PBHCTRb@fAT\\\\`AF\\J^PT?HDTp@tAFFNFZAxAUl@QvB]bCi@ZGXCt@OPIb@g@Nc@",
+"summary_polyline": "qlbxEuwxuXmCxAaAl@w@b@gAr@uAv@M`@URw@`@GJ@f@L^LLRFlAAhFPz@?RBzJL\\BhB@LBvEFx@Dv@E|@DXF|ADl@H^?dCXn@Zn@^PBHCTRb@fAT\\\\`AF\\J^PT?HDTp@tAFFNFZA",
 "average_heartrate": 169.0,
 "average_speed": 3.11299991607666,
 "elevation_gain": 29.0,
+"streak": 1
+},
+{
+"run_id": 1795680599000,
+"name": "Toyooka City - Base",
+"distance": 5715.82,
+"moving_time": "0:31:01.503000",
+"type": "Run",
+"subtype": "Run",
+"start_date": "2026-11-26 08:09:59",
+"start_date_local": "2026-11-26 17:09:59",
+"location_country": "\u52a0\u5e83\u901a, \u82e5\u677e\u753a, \u4e0a\u9670, \u8c50\u5ca1\u5e02, \u5175\u5e93\u53bf/\u5175\u5eab\u7e23, 668-0031, \u65e5\u672c",
+"summary_polyline": "ad~wEkyzuXECCICo@AwCBiAA[EG_B@_CCiC@UDiA?[?ICiA?s@DyAA]@gAC{ABa@GO@MJYJi@h@MHMLw@n@INo@r@y@n@k@l@[@[XOYKAMTm@n@QN_@`@SP]b@k@b@STw@p@gCjCi@`@i@h@y@r@UREHaAz@UVuAlAULc@b@SLOP}A`Ao@j@gBfAg@b@kEpCoDjBkBv@k@\\mBv@i@Zq@XyBjAUF_Af@}Ap@aB~@sAn@iCdAELZVPRf@dB`@|@Xb@RR`Ap@d@Lv@H~@@xAEfB@h@CjA?NGNBNLJ@rA?v@CfA@TAZ@nBCl@B^CdBDn@AHFCCCYB_@AO@kBA]BeBCY@[CWBc@Ey@DGpAEr@BlBCZB|AEp@@ZCx@D`ACx@DnD?NCb@BNAjB?^AVBbAEr@DjGE^DBA@EEk@@iAEy@DeACK@S?uABQIk@Ac@Dq@@yAC[Bw@Au@@[Ce@Bw@Ai@Eq@@ERER@PKFAdBCn@G`@B^CTBl@C",
+"average_heartrate": 142.0,
+"average_speed": 3.066999912261963,
+"elevation_gain": 18.0,
 "streak": 1
 }
 ]
